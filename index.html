@@ -1,2 +1,44 @@
 <!DOCTYPE html>
-<div id="timer">00:00</div>
+<html>
+<body>
+  <div id="timer">00:00</div>
+  
+  <script>
+  // Set the number of seconds for the timer
+var seconds = 60;
+
+// Get the timer element from the HTML
+var timer = document.getElementById("timer");
+
+// Set the timer interval to update every second
+var interval = setInterval(function() {
+  
+  // Subtract one second from the total number of seconds
+  seconds--;
+
+  // Calculate the minutes and seconds remaining
+  var minutes = Math.floor(seconds / 60);
+  var remainingSeconds = seconds % 60;
+
+  // Add a leading zero to the minutes and seconds if necessary
+  if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
+  if (remainingSeconds < 10) {
+    remainingSeconds = "0" + remainingSeconds;
+  }
+
+  // Update the timer element with the new time
+  timer.innerHTML = minutes + ":" + remainingSeconds;
+
+  // If the timer reaches zero, stop the interval and display a message
+  if (seconds == 0) {
+    clearInterval(interval);
+    timer.innerHTML = "Time's up!";
+  }
+}, 1000);
+  
+  <script>
+      
+ <body>
+ <html>
